@@ -1,39 +1,50 @@
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      massegeIsActive: false
-    };
-    this.handleMassageButton = this.handleMassageButton.bind(this);
-    {
-      /**towrzymy nową metode do ktorej przypisujemy to metode która jest ponizej i dodatkowo baindowanie*/
+class Counter extends React.Component {
+  state = {
+    count: 0,
+    result: this.props.counter
+  };
+
+  handleMathClick(type, number) {
+    // debugger;
+    if (type === "substraction") {
+      this.setState(prevState => ({
+        count: prevState.count + 1,
+        result: prevState.result - number
+      }));
+    } else if (type === "addition") {
+      this.setState(prevState => ({
+        count: prevState.count + 1,
+        result: prevState.result + number
+      }));
+    } else if (type === "reset") {
+      this.setState(prevState => ({
+        count: prevState.count + 1,
+        result: 0
+      }));
     }
-  }
-  handleMassageButton() {
-    this.setState({
-      massegeIsActive: !this.state.massegeIsActive
-    });
   }
 
   render() {
-    console.log(this.state.massegeIsActive);
-
-    const text =
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt non dolore veniam eaque, rerum labore soluta, aliquam vel ab molestias enim et? Error nobis adipisci commodi quidem nihil vero sed?";
     return (
       <React.Fragment>
-        <button onClick={this.handleMassageButton}>
-          {this.state.massegeIsActive ? " Ukryj " : " Pokaż "}
+        <button onClick={this.handleMathClick.bind(this, "substraction", 10)}>
+          -10
         </button>
-        <p> {this.state.massegeIsActive && text}</p>
-        {/* jeżeli massegeIsActive jest false to zwraca null jezeli natomiast  jest true to zwraca to co jest po prawej stronie w tym przypadku nasz teks */}
-        <p> {!this.state.massegeIsActive ? " Ukryj " : text}</p>
+        <button onClick={() => this.handleMathClick("substraction", 1)}>
+          -1
+        </button>
+        <button onClick={this.handleMathClick.bind(this, "reset")}>
+          Reset
+        </button>
+        <button onClick={() => this.handleMathClick("addition", 1)}>+1</button>
+        <button onClick={() => this.handleMathClick("addition", 10)}>
+          +10
+        </button>
 
-        {this.state.massegeIsActive ? <p>{text}</p> : null}
-
-        {this.state.massegeIsActive && <p>{text}</p>}
+        <h1>Liczna Kliknieć: {this.state.count}</h1>
+        <h1>Wynik: {this.state.result}</h1>
       </React.Fragment>
     );
   }
 }
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Counter counter="10" />, document.getElementById("root"));
