@@ -1,7 +1,7 @@
 class Counter extends React.Component {
   state = {
     count: 0,
-    result: this.props.counter
+    result: parseInt(this.props.counter)
     // do result i do elseif tez przypisujemy props ktory jest w ReactDOM moze byc tez jako zmienna
   };
 
@@ -44,7 +44,7 @@ class Counter extends React.Component {
         />
         <MathButton
           name="Reset"
-          number="10"
+          // number="10"
           type="reset"
           click={this.handleMathClick}
         />
@@ -60,16 +60,31 @@ class Counter extends React.Component {
           type="addition"
           click={this.handleMathClick}
         />
-        <h1>Liczna Kliknieć: {this.state.count}</h1>
-        <h1>Wynik: {this.state.result}</h1>
+        <ResultPanel count={this.state.count} result={this.state.result} />
       </React.Fragment>
     );
   }
 }
 
+const ResultPanel = props => {
+  // debugger;
+  return (
+    <React.Fragment>
+      <h1>
+        Liczna Kliknieć: {props.count}{" "}
+        {props.count > 10 ? <span>Przeciążenie procesora !!!</span> : null}
+      </h1>
+      <h1>Wynik: {props.result}</h1>
+    </React.Fragment>
+  );
+};
+
 const MathButton = props => {
   const number = parseInt(props.number);
+  console.log(number);
+
   console.log(props);
+  // debugger;
   // return <button onClick={props.click}>{props.name}</button>;nie zadziala bo nie przekazujemy nic do handleMathClick musimy użyć funkcj strzalkowej
   return (
     <button onClick={() => props.click(props.type, number)}>
@@ -77,4 +92,4 @@ const MathButton = props => {
     </button>
   );
 };
-ReactDOM.render(<Counter counter="10" />, document.getElementById("root"));
+ReactDOM.render(<Counter counter="1" />, document.getElementById("root"));
