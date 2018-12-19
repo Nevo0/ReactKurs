@@ -1,9 +1,13 @@
-const PositiveMessage = () => {
-  return <p>Możesz obejrzeć film Zapraszamy</p>;
-};
+// const PositiveMessage = () => {
+//   return <p>Możesz obejrzeć film Zapraszamy</p>;
+// };
 
-const NegativeMessage = () => {
-  return <p>Nie możesz obejrzeć tego filmu jeśli masz mniej niż 18 lat!</p>;
+// const NegativeMessage = () => {
+//   return <p>Nie możesz obejrzeć tego filmu jeśli masz mniej niż 18 lat!</p>;
+// };
+
+const ValidationMassage = props => {
+  return <p>{props.txt}</p>;
 };
 
 class TicketShop extends React.Component {
@@ -21,8 +25,11 @@ class TicketShop extends React.Component {
     if (this.state.isFormSubmitted) {
       // jesli isFormSubmitted jest true to wyswietla nam komunikat czyli komunikat jest wyswietlany dopiero po wcisnieciu guzika i ten karunek nam to sprawdza
       if (this.state.isConfirm) {
-        return <PositiveMessage />;
-      } else return <NegativeMessage />;
+        return <ValidationMassage txt="Możesz obejrzeć film Zapraszamy<" />;
+      } else
+        return (
+          <ValidationMassage txt="Nie możesz obejrzeć tego filmu jeśli masz mniej niż 18 lat!" />
+        );
     } else {
       return null;
     }
