@@ -6,8 +6,23 @@
 //   return <p>Nie możesz obejrzeć tego filmu jeśli masz mniej niż 18 lat!</p>;
 // };
 
+const displayMsg = (isConfirm, isFormSubmitted) => {
+  if (isFormSubmitted) {
+    // jesli isFormSubmitted jest true to wyswietla nam komunikat czyli komunikat jest wyswietlany dopiero po wcisnieciu guzika i ten karunek nam to sprawdza
+    if (isConfirm) {
+      return <ValidationMassage txt="Możesz obejrzeć film Zapraszamy<" />;
+    } else
+      return (
+        <ValidationMassage txt="Nie możesz obejrzeć tego filmu jeśli masz mniej niż 18 lat!" />
+      );
+  } else {
+    return null;
+  }
+};
+
 const ValidationMassage = props => {
-  return <p>{props.txt}</p>;
+  const { txt } = props;
+  return <p>{txt}</p>;
 };
 
 class TicketShop extends React.Component {
@@ -21,19 +36,19 @@ class TicketShop extends React.Component {
       isFormSubmitted: false
     });
   };
-  displayMsg = () => {
-    if (this.state.isFormSubmitted) {
-      // jesli isFormSubmitted jest true to wyswietla nam komunikat czyli komunikat jest wyswietlany dopiero po wcisnieciu guzika i ten karunek nam to sprawdza
-      if (this.state.isConfirm) {
-        return <ValidationMassage txt="Możesz obejrzeć film Zapraszamy<" />;
-      } else
-        return (
-          <ValidationMassage txt="Nie możesz obejrzeć tego filmu jeśli masz mniej niż 18 lat!" />
-        );
-    } else {
-      return null;
-    }
-  };
+  // displayMsg = () => {
+  //   if (this.state.isFormSubmitted) {
+  //     // jesli isFormSubmitted jest true to wyswietla nam komunikat czyli komunikat jest wyswietlany dopiero po wcisnieciu guzika i ten karunek nam to sprawdza
+  //     if (this.state.isConfirm) {
+  //       return <ValidationMassage txt="Możesz obejrzeć film Zapraszamy<" />;
+  //     } else
+  //       return (
+  //         <ValidationMassage txt="Nie możesz obejrzeć tego filmu jeśli masz mniej niż 18 lat!" />
+  //       );
+  //   } else {
+  //     return null;
+  //   }
+  // };
   handleBuy = e => {
     e.preventDefault();
     if (!this.state.isFormSubmitted)
@@ -42,6 +57,8 @@ class TicketShop extends React.Component {
       });
   };
   render() {
+    const { isConfirm, isFormSubmitted } = this.state;
+
     return (
       <React.Fragment>
         <h1>Kup bilet na film roku!</h1>
@@ -50,13 +67,14 @@ class TicketShop extends React.Component {
             type="checkbox"
             id="age"
             onChange={this.handleCheckbox}
-            checked={this.state.isConfirm}
+            checked={isConfirm}
           />
           <label htmlFor="age">Mam conajmniej 18 lat</label>
           <br />
           <button onClick={this.handleBuy}>Kup Bilet</button>
         </form>
-        {this.displayMsg()}
+        {displayMsg(isConfirm, isFormSubmitted)}
+        {/* przekazujemy do funkcji zewnetrzenj dwa parametry isConfirm, isFormSubmitted  aby sie do nich odwołać*/}
       </React.Fragment>
     );
   }
