@@ -23,6 +23,14 @@ class App extends React.Component {
 
   // debugger;
   render() {
+    const style = // warunek kiedy shoppingCart jest rowny 0  to opacity jest 0.3
+      this.state.shoppingCart === 0
+        ? {
+            // backgroundColor: "red",
+            opacity: 0.3
+          }
+        : {};
+
     return (
       <div>
         <button
@@ -31,7 +39,15 @@ class App extends React.Component {
         >
           -
         </button>
-        <span> {this.state.shoppingCart} </span>
+
+        <span
+          // dodawanie styli css liniowo
+          style={style}
+        >
+          {" "}
+          {this.state.shoppingCart}{" "}
+        </span>
+
         <button
           disabled={
             this.state.shoppingCart === this.state.availableProducts
