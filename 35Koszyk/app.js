@@ -23,8 +23,10 @@ class App extends React.Component {
 
   // debugger;
   render() {
+    const { shoppingCart, availableProducts } = this.state;
+
     const style = // warunek kiedy shoppingCart jest rowny 0  to opacity jest 0.3
-      this.state.shoppingCart === 0
+      shoppingCart === 0
         ? {
             // backgroundColor: "red",
             opacity: 0.3
@@ -34,7 +36,7 @@ class App extends React.Component {
     return (
       <div>
         <button
-          disabled={this.state.shoppingCart ? false : true}
+          disabled={shoppingCart ? false : true}
           onClick={this.handleRemoveFromCart}
         >
           -
@@ -45,24 +47,18 @@ class App extends React.Component {
           style={style}
         >
           {" "}
-          {this.state.shoppingCart}{" "}
+          {shoppingCart}{" "}
         </span>
 
         <button
-          disabled={
-            this.state.shoppingCart === this.state.availableProducts
-              ? true
-              : false
-          }
+          disabled={shoppingCart === availableProducts ? true : false}
           onClick={this.handleAddFromCart}
         >
           +
         </button>
-        {this.state.shoppingCart > 0 && (
-          <button onClick={this.handleBuy}>Kup</button>
-        )}
+        {shoppingCart > 0 && <button onClick={this.handleBuy}>Kup</button>}
         {/* dodaje button gdy shoppingcart jest wieksza od 0, musi byc operator porownania */}
-        <p>{this.state.availableProducts}</p>
+        <p>{availableProducts}</p>
       </div>
     );
   }
