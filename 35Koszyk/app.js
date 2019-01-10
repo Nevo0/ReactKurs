@@ -16,7 +16,8 @@ class App extends React.Component {
 
   handleBuy = () => {
     this.setState({
-      availableProducts: this.state.availableProducts - this.state.shoppingCart
+      availableProducts: this.state.availableProducts - this.state.shoppingCart,
+      shoppingCart: 0
     });
   };
 
