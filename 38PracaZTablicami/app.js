@@ -1,15 +1,18 @@
+const Item = props => {
+  return <li>{`Owoc ${props.content}`}</li>;
+};
+
 class LiistItem extends React.Component {
   state = {
-    items: ["jablko", "sliwka", "gruszka"]
+    items: ["jabłko", "sliwka", "gruszka"]
   };
   render() {
+    const Items = this.state.items.map(item => (
+      <Item key={item} content={item} />
+    ));
     return (
       <div>
-        <ul>
-          <li>{this.state.items[0]}</li>
-          <li>{this.state.items[1]}</li>
-          <li>{this.state.items[2]}</li>
-        </ul>
+        <ul>{Items}</ul>
       </div>
     );
   }
