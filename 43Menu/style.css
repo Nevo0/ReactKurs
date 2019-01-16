@@ -1,5 +1,5 @@
-div {
-    line-height: 50px;
+html {
+
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -18,4 +18,19 @@ button {
 
 button:disabled {
     opacity: 0.3;
+}
+
+li {
+    line-height: 160%;
+
+    paddnig: 20px 10px;
+    cursor: pointer;
+}
+
+li:nth-child(even) {
+    background-color: #eee;
+}
+
+li:nth-child(odd) {
+    background-color: #ccc;
 }
