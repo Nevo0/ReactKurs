@@ -22,8 +22,8 @@ button:disabled {
 
 li {
     line-height: 160%;
+    padding: 20px 10px;
 
-    paddnig: 20px 10px;
     cursor: pointer;
 }
 
@@ -33,4 +33,12 @@ li:nth-child(even) {
 
 li:nth-child(odd) {
     background-color: #ccc;
+}
+
+.enabled {
+    font-weight: bold
+}
+
+.disabled {
+    color: gray
 }

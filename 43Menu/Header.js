@@ -8,8 +8,7 @@ const Header = props => {
       <h2>
         {number
           ? `Do zapłaty: ${number * 10} złotych`
-          : `Nic nie wybrałeś, może jednak coś kupiisz`}{" "}
-        złoorych
+          : `Nic nie wybrałeś, może jednak coś kupisz`}{" "}
       </h2>
     </header>
   );
