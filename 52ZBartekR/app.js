@@ -23,16 +23,19 @@ class App extends React.Component {
   };
   handleButtonAddTextToArray = () => {
     if (this.state.newDivin === "") return;
-    else {
-      this.state.options.push({
-        id: this.state.options.length,
-        name: this.state.options.length + 1,
-        title: this.state.newDivin
-      });
-      this.setState({
-        newDivin: ""
-      });
-    }
+
+    const options = [...this.state.options];
+    // robimy kopie tabliczy na ktorej pracujemy i do options przypisujemy stara tabloce[...this.state.options];
+
+    options.push({
+      id: this.state.options.length,
+      name: this.state.options.length + 1,
+      title: this.state.newDivin
+    });
+    this.setState({
+      options: options,
+      newDivin: ""
+    });
   };
   render() {
     return (
