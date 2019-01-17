@@ -1,12 +1,21 @@
-const Dollars = props => (
-  <div>
-    Wartość w Dolarach:{" "}
-    {props.cash <= 0 ? "" : (props.cash / props.ratio).toFixed(2)}
-  </div>
-);
-const Euro = props => {
+// const Dollars = props => (
+//   <div>
+//     Wartość w Dolarach:{" "}
+//     {props.cash <= 0 ? "" : (props.cash / props.ratio).toFixed(2)}
+//   </div>
+// );
+// const Euro = props => {
+//   const value = (props.cash / props.ratio).toFixed(2);
+//   return <div>Wartość w Euro: {props.cash <= 0 ? "" : value}</div>;
+// };
+
+const Cash = props => {
   const value = (props.cash / props.ratio).toFixed(2);
-  return <div>Wartość w Euro: {props.cash <= 0 ? "" : value}</div>;
+  return (
+    <div>
+      {props.title}: {props.cash <= 0 ? "" : value}
+    </div>
+  );
 };
 
 class ExchangeCounter extends React.Component {
@@ -33,8 +42,10 @@ class ExchangeCounter extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <Dollars cash={amount} ratio={ratioDollar} />
-          <Euro cash={amount} ratio={ratioEuro} />
+          {/* <Dollars cash={amount} ratio={ratioDollar} />
+          <Euro cash={amount} ratio={ratioEuro} /> */}
+          <Cash cash={amount} ratio={ratioDollar} title="Wartość w Dolarach" />
+          <Cash cash={amount} ratio={ratioEuro} title="Wartość w Euro" />
         </div>
       </React.Fragment>
     );
