@@ -1,24 +1,38 @@
 import React, { Component } from "react";
-
+// imrc
 import "./App.css";
+import SwitchButton from "./SwitchButton";
 
+//cc
 class App extends Component {
+  state = {
+    time: 0,
+    active: false
+  };
+
+  handleClick = () => {
+    if (this.state.active) {
+      clearInterval(this.idInterval);
+    } else {
+      this.idInterval = setInterval(() => this.addSecond(), 1000);
+    }
+    this.setState({
+      active: !this.state.active
+    });
+  };
+
+  addSecond = () => {
+    this.setState({ time: this.state.time + 1 });
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Naucz sie React
-          </a>
-        </header>
+      <div>
+        <p>{this.state.time}</p>
+        <SwitchButton
+          active={this.state.active}
+          handleClick={this.handleClick}
+        />
       </div>
     );
   }
