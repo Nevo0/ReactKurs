@@ -1,15 +1,20 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+/node_modules
 /67reactapp/node_modules
+/73date/node_modules
 /67reactapp/.pnp
 /67reactapp/.pnp.js
+/74JSON/node_modules
 
 # testing
 /67reactapp/coverage
 
 # production
 /67reactapp/build
+/73date/build
+/74JSON/build
 
 # misc
 .DS_Store
