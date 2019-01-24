@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  background-color: darkorange;
+}
+
+p,
+button {
+  text-align: center;
+
+}
+
+button {
+  border: 2px solid cornflowerblue;
+  background-color: aqua;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
