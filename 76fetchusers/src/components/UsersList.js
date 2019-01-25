@@ -5,7 +5,7 @@ import "./UsersList.css";
 const UsersList = props => {
   const usersItem = props.users.map(user => {
     {
-      console.log(user.login.uuid);
+      console.log(user);
       let title =
         user.name.title.charAt(0).toUpperCase() + user.name.title.slice(1);
       let first =
@@ -14,8 +14,12 @@ const UsersList = props => {
         user.name.last.charAt(0).toUpperCase() + user.name.last.slice(1);
 
       return (
+        <img src={user.picture.large} alt={user.name.last}/>
         <li key={user.login.uuid}>
-          {title} {first} {last}
+          <h4>
+            {title} {first} {last}
+          </h4>
+          <p>{user.email}</p>
         </li>
       );
     }

@@ -11,7 +11,7 @@ class App extends Component {
   handleDataFetch = () => {
     fetch(API)
       .then(response => {
-        // console.log(response.ok);
+        console.log(response.ok);
 
         if (response.ok) {
           return response;
@@ -20,10 +20,13 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(
-        data =>
+        data => {
+          // console.log(data);
+
           this.setState({
             users: data.results
-          })
+          });
+        }
         // console.log(data.results)
       )
       .catch(error => console.log(error));
@@ -31,7 +34,7 @@ class App extends Component {
 
   render() {
     const users = this.state.users;
-    console.log(this.state.users);
+    // console.log(users);
 
     return (
       <div>

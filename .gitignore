@@ -9,6 +9,7 @@
 /74JSON/node_modules
 /75xmlhttprequest/node_modules
 76fetchusers/node_modules/
+/77addusers/node_modules
 
 # testing
 /67reactapp/coverage
@@ -17,7 +18,9 @@
 /67reactapp/build
 /73date/build
 /74JSON/build
-75xmlhttprequest/build
+/75xmlhttprequest/build
+76fetchusers/build
+/77addusers/build
 
 # misc
 .DS_Store
