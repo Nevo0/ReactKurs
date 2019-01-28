@@ -1,14 +1,13 @@
 import React from "react";
 const Form = props => {
   return (
-    <form onSubmit={props.handleCitySubmit}>
+    <form>
       <input
         type="text"
         value={props.value}
         placeholder="Wpisz miasto"
         onChange={props.handleInputChange}
       />
-      <button>Wyszukaj miasta</button>
     </form>
   );
 };
