@@ -69,8 +69,8 @@ class App extends Component {
   // };
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.value > 3);
-    if (this.state.value > 3) return;
+    // console.log(this.state.value > 3);
+    if (this.state.value.length < 3) return;
     if (prevState.value !== this.state.value) {
       const APIKEY = "b048c5b0a323a1ca4e35e47473cfa10b";
       const API = `http://api.openweathermap.org/data/2.5/weather?q=${
@@ -80,7 +80,7 @@ class App extends Component {
 
       fetch(API)
         .then(response => {
-          console.log(response);
+          // console.log(response);
 
           if (response.ok) {
             return response;

@@ -36,7 +36,7 @@ const Result = props => {
   }
   return (
     <div className="result">
-      {error ? `Wipisz nazwe miasta. Nie znalazłem miasta ${city}` : content}
+      {error ? `Nie znalazłem miasta ${city}` : content}
     </div>
   );
 };
