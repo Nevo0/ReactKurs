@@ -1,4 +1,5 @@
 import React from "react";
+import "./Result.css";
 
 const Result = props => {
   const {
@@ -18,7 +19,7 @@ const Result = props => {
     const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString();
     const sunsetTime = new Date(sunset * 1000).toLocaleTimeString();
     content = (
-      <div>
+      <>
         <h3>
           Pogoda dla: <strong>{city}</strong>{" "}
         </h3>
@@ -30,7 +31,7 @@ const Result = props => {
         <p>Aktualne ciśnienie" {pressure} kPh</p>
         <p>Wschód {sunriseTime}</p>
         <p>Zachód {sunsetTime}</p>
-      </div>
+      </>
     );
   }
   return (

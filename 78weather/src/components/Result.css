@@ -1,0 +1,11 @@
+.result {
+    margin: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    border-top: 2px solid #ddd;
+}
+
+.result h3,
+.result p {
+    font-weight: normal;
+}
