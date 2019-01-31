@@ -13,6 +13,7 @@
 /78weather/node_modules
 /79pomodorotimer/node_modules
 /85Form/node_modules
+/89todoapp/node_modules
 # testing
 /67reactapp/coverage
 /78weather/coverage
