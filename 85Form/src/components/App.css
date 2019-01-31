@@ -24,3 +24,8 @@ button {
     margin-top: 20px;
     margin-left: 50px;
 }
+
+span {
+    color: red;
+    font-size: 14px;
+}

@@ -7,7 +7,22 @@ class App extends Component {
     email: "",
     pass: "",
     check: "",
-    accept: false
+    accept: false,
+
+    errors: {
+      username: false,
+      email: false,
+      pass: false,
+      accept: false
+    }
+  };
+
+  massages = {
+    username_incorrect:
+      "Nazwa musi byc dłuższa niż 10 znaków i nie może zawierać spacji",
+    email_incorrect: `Brak @ w emaili`,
+    pass_incorrect: "Hasło musi zawierać minimum 8 znaków",
+    accept_incorrect: " Nie potwierdzona zgoda"
   };
 
   handleChange = e => {
@@ -32,9 +47,44 @@ class App extends Component {
       });
     }
   };
+  formValidation = () => {
+    let username = false;
+    let emial = false;
+    let password = false;
+    let accept = false;
+    let correct = false;
+  };
 
   handleSubmit = e => {
     e.preventDefault();
+    const validation = this.formValidation;
+
+    if (true) {
+      // restartowanie wszystkiego
+      this.setState({
+        username: "",
+        email: "",
+        pass: "",
+        check: "",
+        accept: false,
+
+        errors: {
+          username: false,
+          email: false,
+          pass: false,
+          accept: false
+        }
+      });
+    } else {
+      this.setState({
+        errors: {
+          username: false,
+          email: false,
+          pass: false,
+          accept: false
+        }
+      });
+    }
     // console.log("dziala");
   };
 
@@ -54,6 +104,9 @@ class App extends Component {
               onChange={this.handleChange}
             />
             {/* dzieki dodani id w inpucie o tej samej nazwie co w labelForm to jeleli klikniemy na napis to bedzie on aktywny */}
+            {this.state.errors.username && (
+              <span>{this.massages.username_incorrect}</span>
+            )}
           </label>
 
           <label htmlFor="email">
@@ -66,6 +119,9 @@ class App extends Component {
               onChange={this.handleChange}
             />
             {/* dzieki dodani id w inpucie o tej samej nazwie co w labelForm to jeleli klikniemy na napis to bedzie on aktywny */}
+            {this.state.errors.email && (
+              <span>{this.massages.email_incorrect}</span>
+            )}
           </label>
 
           <label htmlFor="password">
@@ -78,6 +134,9 @@ class App extends Component {
               onChange={this.handleChange}
             />
             {/* dzieki dodani id w inpucie o tej samej nazwie co w labelForm to jeleli klikniemy na napis to bedzie on aktywny */}
+            {this.state.errors.pass && (
+              <span>{this.massages.pass_incorrect}</span>
+            )}
           </label>
 
           <label htmlFor="accept">
@@ -89,6 +148,9 @@ class App extends Component {
               onChange={this.handleChange}
             />
             Wyrazam zgode wszelaka
+            {this.state.errors.accept && (
+              <span>{this.massages.accept_incorrect}</span>
+            )}
           </label>
 
           <button>Wyslij</button>
