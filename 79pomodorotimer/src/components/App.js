@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { all } from "q";
+import { Schema } from "graphene-js";
 class App extends Component {
   state = {
     work: 25,

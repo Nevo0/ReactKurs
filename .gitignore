@@ -10,17 +10,25 @@
 /75xmlhttprequest/node_modules
 76fetchusers/node_modules/
 /77addusers/node_modules
-
+/78weather/node_modules
+/79pomodorotimer/node_modules
+/85Form/node_modules
 # testing
 /67reactapp/coverage
+/78weather/coverage
+/79pomodorotimer/coverage
+/85Form/coverage
 
 # production
 /67reactapp/build
 /73date/build
 /74JSON/build
 /75xmlhttprequest/build
-76fetchusers/build
+/76fetchusers/build
 /77addusers/build
+/78weather/build
+/79pomodorotimer/build
+/85Form/build
 
 # misc
 .DS_Store
