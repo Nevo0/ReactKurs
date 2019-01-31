@@ -8,6 +8,7 @@ class App extends Component {
     pass: "",
     check: "",
     accept: false,
+    massage: "",
 
     errors: {
       username: false,
@@ -48,18 +49,50 @@ class App extends Component {
     }
   };
   formValidation = () => {
+    // console.log("formValidation");
+
     let username = false;
     let emial = false;
     let password = false;
     let accept = false;
     let correct = false;
+
+    if (
+      this.state.username.length >= 10 &&
+      this.state.username.indexOf(" ") === -1
+    ) {
+      username = true;
+    }
+    if (this.state.email.indexOf("@") !== -1) {
+      emial = true;
+    }
+    if (this.state.pass.length == 8) {
+      password = true;
+    }
+    if (this.state.accept === true) {
+      accept = true;
+    }
+    if (username && emial && password && accept) {
+      correct = true;
+    }
+    return {
+      username,
+      emial,
+      password,
+      accept,
+      correct
+    };
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    const validation = this.formValidation;
+    // console.log("handleSubmit");
 
-    if (true) {
+    const validation = this.formValidation();
+
+    // console.log(validation);
+
+    if (validation.correct) {
       // restartowanie wszystkiego
       this.setState({
         username: "",
@@ -67,6 +100,7 @@ class App extends Component {
         pass: "",
         check: "",
         accept: false,
+        massage: "Formularz został wysłany",
 
         errors: {
           username: false,
@@ -75,18 +109,31 @@ class App extends Component {
           accept: false
         }
       });
+      console.log("Formularz wysłany");
     } else {
       this.setState({
         errors: {
-          username: false,
-          email: false,
-          pass: false,
-          accept: false
+          username: !validation.username,
+          email: !validation.emial,
+          pass: !validation.password,
+          accept: !validation.accept
         }
       });
     }
     // console.log("dziala");
   };
+
+  componentDidUpdate() {
+    if (this.state.massage !== "") {
+      setTimeout(
+        () =>
+          this.setState({
+            massage: ""
+          }),
+        3000
+      );
+    }
+  }
 
   render() {
     return (
@@ -155,6 +202,7 @@ class App extends Component {
 
           <button>Wyslij</button>
         </form>
+        {this.state.massage !== "" && <div>{this.state.massage}</div>}
       </div>
     );
   }
