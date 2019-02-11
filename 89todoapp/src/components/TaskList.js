@@ -6,27 +6,22 @@ const TaskList = props => {
   //
   const done = props.tasks.filter(task => task.status);
 
-  const tasksFalse = active.map(task => {
-    return (
-      <Task
-        key={task.id}
-        task={task}
-        change={props.changeTaskStatus}
-        delete={props.deleteTask}
-      />
-    );
-  });
-  const tasksTrue = done.map(task => {
-    return (
-      <Task
-        key={task.id}
-        task={task}
-        change={props.changeTaskStatus}
-        delete={props.deleteTask}
-      />
-    );
-  });
-  console.log(active, done);
+  const tasksFalse = active.map(task => (
+    <Task
+      key={task.id}
+      task={task}
+      change={props.changeTaskStatus}
+      delete={props.deleteTask}
+    />
+  ));
+  const tasksTrue = done.map(task => (
+    <Task
+      key={task.id}
+      task={task}
+      change={props.changeTaskStatus}
+      delete={props.deleteTask}
+    />
+  ));
 
   return (
     <div>

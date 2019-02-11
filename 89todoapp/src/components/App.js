@@ -11,14 +11,14 @@ class App extends Component {
         title: "Pozmywać naczynia",
         date: "2019-01-11",
         priority: true,
-        status: true,
+        status: false,
         finishdate: "2019-02-20"
       },
       {
         id: 1,
         title: "naczynia",
         date: "2019-01-20",
-        priority: true,
+        priority: false,
         status: false,
         finishdate: "2019-02-20"
       },
@@ -34,16 +34,48 @@ class App extends Component {
         id: 3,
         title: "React",
         date: "2019-01-12",
-        priority: true,
+        priority: false,
         status: false,
         finishdate: "2019-02-20"
       },
       {
         id: 4,
+        title: "Pozmywać naczynia",
+        date: "2019-01-11",
+        priority: true,
+        status: false,
+        finishdate: "2019-02-20"
+      },
+      {
+        id: 5,
+        title: "naczynia",
+        date: "2019-01-20",
+        priority: false,
+        status: false,
+        finishdate: "2019-02-20"
+      },
+      {
+        id: 6,
+        title: "Wynieść smieci",
+        date: "2019-01-15",
+        priority: true,
+        status: false,
+        finishdate: "2019-02-20"
+      },
+      {
+        id: 7,
+        title: "React",
+        date: "2019-01-12",
+        priority: false,
+        status: false,
+        finishdate: "2019-02-20"
+      },
+      {
+        id: 8,
         title: "Skręcać kuchnie",
         date: "2019-01-20",
-        priority: true,
-        status: true,
+        priority: false,
+        status: false,
         finishdate: "2019-02-20"
       }
     ]
