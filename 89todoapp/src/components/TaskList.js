@@ -6,6 +6,34 @@ const TaskList = props => {
   //
   const done = props.tasks.filter(task => task.status);
 
+  // method sort
+
+  if (done.length >= 2) {
+    done.sort((a, b) => {
+      if (a.finishdate < b.finishdate) {
+        return 1;
+      }
+      if (a.finishdate > b.finishdate) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  if (active.length >= 2) {
+    active.sort((a, b) => {
+      a = a.title.toLowerCase();
+      b = b.title.toLowerCase();
+      if (a > b) {
+        return 1;
+      }
+      if (a < b) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
   const tasksFalse = active.map(task => (
     <Task
       key={task.id}

@@ -40,7 +40,7 @@ class App extends Component {
       },
       {
         id: 4,
-        title: "Pozmywać naczynia",
+        title: "Czyścić naczynia",
         date: "2019-01-11",
         priority: true,
         status: false,
@@ -48,7 +48,7 @@ class App extends Component {
       },
       {
         id: 5,
-        title: "naczynia",
+        title: "Być naczynia",
         date: "2019-01-20",
         priority: false,
         status: false,
@@ -56,9 +56,9 @@ class App extends Component {
       },
       {
         id: 6,
-        title: "Wynieść smieci",
+        title: "Schowaź smieci",
         date: "2019-01-15",
-        priority: true,
+        priority: false,
         status: false,
         finishdate: "2019-02-20"
       },
@@ -72,7 +72,7 @@ class App extends Component {
       },
       {
         id: 8,
-        title: "Skręcać kuchnie",
+        title: "Aran kuchnie",
         date: "2019-01-20",
         priority: false,
         status: false,
