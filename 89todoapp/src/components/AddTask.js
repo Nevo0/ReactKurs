@@ -27,7 +27,16 @@ class AddTask extends Component {
   };
 
   handleClick = () => {
-    console.log("click Add task");
+    console.log("click Add task w AddTAsk");
+    const { text, checked, date } = this.state;
+    const add = this.props.addTask(text, date, checked);
+    if (add) {
+      this.setState({
+        text: "",
+        checked: false,
+        date: this.minDate
+      });
+    }
   };
 
   render() {

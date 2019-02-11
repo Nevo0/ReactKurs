@@ -127,11 +127,33 @@ class App extends Component {
     });
   };
 
+  addTask = (text, date, important) => {
+    const id = this.state.tasks.length;
+    console.log("add Task w App");
+    console.log(this.state.tasks.length);
+
+    const task = {
+      id: id,
+      title: text,
+      date: date,
+      priority: important,
+      status: false,
+      finishdate: null
+    };
+    console.log(task);
+
+    this.setState({
+      tasks: [...this.state.tasks, task]
+    });
+
+    return true;
+  };
+
   render() {
     return (
       <div>
         To Do App
-        <AddTask />
+        <AddTask addTask={this.addTask} />
         <hr />
         <TaskList
           tasks={this.state.tasks}
