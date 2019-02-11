@@ -130,7 +130,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        TODO APPasdasd
+        To Do App
         <AddTask />
         <hr />
         <TaskList
