@@ -1,0 +1,17 @@
+nav.main {
+    /* background-color: aqua; */
+    padding: 0 30px 30px 0
+}
+
+
+
+ul {
+    list-style: none
+}
+
+nav.mani a {
+    display: block;
+    text-decoration: none;
+    color: black;
+
+}
