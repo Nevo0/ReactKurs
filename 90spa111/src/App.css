@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: black
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+li {
+    flex-grow: 1
+}
+
+a {
+    display: block;
+    color: azure;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-display: arial;
+    text-transform: uppercase;
+    border-bottom: 4px solid black;
+}
+
+a:hover {
+    color: yellow;
+    border-bottom-color: yellow;
+}
+
+.home_selected {
+    color: red;
+}
+
+.news_selected {
+    color: green;
+}
+
+.contact_selected {
+    color: yellow;
+}
